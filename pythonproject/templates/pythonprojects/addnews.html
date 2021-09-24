@@ -1,0 +1,25 @@
+{% extends 'pythonprojects/header.html' %}
+
+{% block content %}
+
+<br>
+<h1>เพิ่มข้อมูลข่าวสาร</h1>
+<form action="{%  url 'addnewsdata' %}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="">ชื่อข่าวสาร</label>
+        <input type="text" class="form-control" name="news_title">
+    </div>
+    <div class="form-group">
+        <label for="">รายละเอียดข่าวสาร</label>
+        <textarea type="text" class="form-control" name="news_detail" row="5"></textarea>
+    </div>
+    <div class="form-group">
+        <input type="file" class="form-control" name="news_photo" accept=".jpg,.png,.gif" required>
+        <img id="#" src="#" alt="" class="thumbnail" />
+    </div>
+    <button type="submit" value="บันทึกข่าวสาร" class="btn btn-success w-100">อัพโหลดข่าวสาร</button>
+</form>
+</form>
+
+{% endblock %}

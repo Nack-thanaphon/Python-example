@@ -1,0 +1,75 @@
+{% extends 'pythonprojects/header.html' %}
+
+{% block content %}
+
+<br>
+
+<style>
+    .box-content {
+        padding: 5rem;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    .input-group-text {
+        width: 150px;
+    }
+</style>
+
+
+
+<div class="box-content">
+
+
+
+    <h1>ลงทะเบียนผู้ใช้งาน</h1>
+    <br>
+    <form action="{% url 'registerdata' %}" method="POST">
+        {% csrf_token %}
+        {% for msg in messages %}
+
+        <div class="alert alert-danger" role="alert">
+            {{ msg }}
+        </div>
+        {% endfor %}
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="">ชื่อ-นามสกุล</span>
+            <input type="text" class="form-control" placeholder="กรุณากรอกชื่อ-นามสกุล" aria-label="Username"
+                name="fname">
+        </div>
+
+        <div class="input-group mb-3">
+            <span class="input-group-text">Email ผู้ใช้งาน</span>
+            <input type="email" class="form-control" placeholder="กรุณากรอก Email ผู้ใช้งาน" name="em">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="">ชื่อผู้ใช้งาน</span>
+            <input type="text" class="form-control" placeholder="Username" aria-label="Username" name="uname">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="">รหัสผู้ใช้งาน</span>
+            <input type="password" class="form-control" placeholder="กรุณากรอกรหัสผ่าน" aria-label="Username"
+                name="pword">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="">รหัสผู้ใช้งาน</span>
+            <input type="password" class="form-control" placeholder="re-password" aria-label="Username" name="repword">
+        </div>
+        <form action="" class="method">
+            <button type="submit" class="btn btn-success">บันทึกข้อมูล</button>
+        </form>
+        <br>
+     
+    </form>
+    
+   
+</div>
+
+
+
+</div>
+{% endblock %}

@@ -1,0 +1,32 @@
+{% extends 'pythonprojects/header.html' %}
+
+{% block content %}
+<br>
+<h1>ข่าวสาร</h1>
+<br>
+
+{% for data in news %}
+<br>
+<div class="container" style="padding: 5rem;">
+    <form action="{% url 'contentresult' %}" method="GET">
+    <input type="hidden" value="{{data.id}}" name="id">
+        <div class="card text-center">
+            <div class="card-header">
+                <h1>{{data.news_title}}</h1>
+            </div>
+            <div class="card-body">                
+                <p class="card-text">{{data.news_detail}}</p>
+               
+            </div>
+            <div class="card-footer text-muted">
+                {{ data.news_date}}
+            </div>
+            <img src="{{data.news_photo.url}}" alt="card image top" class="card-img-top">
+
+            <input type="submit" value="อ่านต่อ" class="btn btn-success">
+        </div>
+    </form>
+    <br>
+</div>
+{% endfor %}
+{% endblock %}

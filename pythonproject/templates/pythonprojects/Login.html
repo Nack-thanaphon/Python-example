@@ -1,0 +1,63 @@
+{% extends 'pythonprojects/header.html' %}
+
+{% block content %}
+
+<br>
+
+<style>
+    .box-content {
+        padding: 5rem;
+        display: flex;
+        justify-items: center;
+        align-items: center;
+        flex-direction: column;
+
+    }
+
+    .input-group-text {
+        width: 150px;
+    }
+</style>
+
+
+
+<div class="box-content">
+
+
+
+    <h1>เข้าสู่ระบบ</h1>
+    <br>
+    <form action="{% url 'logincheck' %}" method="POST">
+        {% csrf_token %}
+        {% for msg in messages %}
+
+        <div class="alert alert-danger" role="alert">
+            {{ msg }}
+        </div>
+        {% endfor %}
+
+
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="">Username</span>
+            <input type="text" class="form-control" placeholder="กรุณากรอกUsername" aria-label="Username"
+                name="username">
+        </div>
+        <div class="input-group mb-3">
+            <span class="input-group-text" id="">Password</span>
+            <input type="password" class="form-control" placeholder="กรุณากรอกรหัสผ่าน" aria-label="Username"
+                name="password">
+        </div>
+        <form action="" class="method">
+            <button type="submit" class="btn btn-success">Login เข้าสู่ระบบ</button>
+        </form>
+        <br>
+       
+    </form>
+
+
+</div>
+
+
+
+</div>
+{% endblock %}

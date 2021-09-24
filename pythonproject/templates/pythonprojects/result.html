@@ -1,0 +1,34 @@
+{% extends 'pythonprojects/header.html' %}
+
+{% block content %}
+
+<br>
+<h1>NEWSUPDATE</h1>
+
+{% for data in result %}
+<form action="{% url 'contentupdate' %}" enctype="multipart/form-data" method="POST">
+    {% csrf_token %}
+    <input type="hidden" value="{{data.id}}" name="id">
+    <div class="form-group">
+        <br>
+        <label for=""><H1>{{data.news_title}}</H1></label>
+    </div>
+    <img id="#" src="{{data.news_photo.url}}" alt="" class="thumbnail" />
+    <br>
+    <div class="form-group">
+        <label for=""><p>{{data.news_detail}}</p></label>
+        <br>
+        <p ></p>
+    </div>
+   
+        
+       
+    
+   
+</form>
+</form>
+
+
+{% endfor %}
+
+{% endblock %}
